@@ -1,15 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404
+
+#This module I imported below deals on user authentication during signups and logins and reset passwords functionality.
 from django.contrib import messages
+from django.contrib.auth import login, authenticate, logout
+from .forms import RegistrationForm
+
+#this module I imported here is for the date and time rendering, and also to calculate timezone and to give out timing to region irrespective of their countries time.
 from datetime import datetime
 from django.utils import timezone
-import random
-from django.db.models import Q
-
-# this modules below is for user authentication part and registration
-from django.contrib.auth import authenticate, login as auth_login
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
-from django.core.mail import send_mail
-from django.core.mail import EmailMultiAlternatives
 
 # Create your views here.
+
+#This functions below works for the signup page
+def sign_up(request):
+    if request.method == 'GET':
+        form = RegistrationForm()
+        return render(request, 'pages/signup.html', {'form': form})
