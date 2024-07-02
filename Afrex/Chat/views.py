@@ -13,6 +13,24 @@ from django.utils import timezone
 
 #This functions below works for the signup page
 def sign_up(request):
+    
+    context = {
+            'title': 'Let us get you connected by signing up first!'
+            }
+
     if request.method == 'GET':
         form = RegistrationForm()
-        return render(request, 'pages/signup.html', {'form': form})
+        context['form'] = form
+        return render(request, 'pages/signup.html', context)
+
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+            login(request, user)
+            return redirect('home')
+        else:
+            context['form'] = form
+            return render(request, 'pages/signup.html', context)
