@@ -19,11 +19,20 @@
             <div style="background-image: url(../../static/chat.jpg);">
                 <div class="absolute inset-0 bg-black opacity-25"></div> <!-- i added opacity to reduce the illumination coming from the background image -->
                 <div class="flex items-center justify-center h-screen">
-		            <form method = 'POST'>
-			            {% csrf_token %}
-			            {{ form.as_p }}
-			            <input type = 'submit' value = 'Sign '/>
-		            </form>
+                    <div class = 'backdrop-blur-lg h-140 w-120 bg-green-700'>
+		                <form method = 'POST'>
+			                {% csrf_token %}
+                            <div>
+			                    <input type = 'text' id = '{{form.username}}' name = 'username' placeholder = 'Username'>
+                            </div>
+                            <div>
+                                <input type = 'password' id = '{{form.password}}' name = 'password' placeholder = 'Password'>
+                            </div>
+                            <div>
+			                    <input type = 'submit' value = 'Sign '/>
+                            </div>
+		                </form>
+                    </div>
                 </div>
             </div>
         </main>
