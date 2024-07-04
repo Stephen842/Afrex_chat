@@ -1,0 +1,22 @@
+/* Including Magnolia Script font */
+@font-face {
+    font-family: 'Magnolia Script';
+    src: url('Magnolia-Script.otf') format('opentype');
+}
+
+.form-control{
+    width: 100%;
+    color: #333;
+    font-family: 'Magnolia Script', sans-serif;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #ff7474;
+    border-bottom-right-radius: 5px;
+    border-color: #ff7474;
+}
+
+.form-control::placeholder {
+    color: #ff7474;
+    font-family: 'Magnolia Script', sans-serif;
+}
