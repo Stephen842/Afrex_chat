@@ -50,9 +50,9 @@ def sign_in(request):
         form = LoginForm(request.POST)
 
         if form.is_valid():
-            username = form.cleaned_data["username"]
+            email = form.cleaned_data["email"]
             password = form.cleaned_data["password"]
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(request, email=email, password=password)
 
             if user:
                 login(request, user)
@@ -60,7 +60,7 @@ def sign_in(request):
 
         messages.error(
             request,
-            f"The username or password you entered is incorrect. Please try again.",
+            f"The email address or password you entered is incorrect. Please try again.",
         )
         context["form"] = form
         return render(request, "pages/signin.html", context)
