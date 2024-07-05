@@ -6,13 +6,13 @@
 
 .form-control{
     width: 100%;
-    color: #333;
+    color: #4a5568;
     font-family: 'Magnolia Script', sans-serif;
     background: transparent;
     outline: none;
     border: none;
     border-bottom: 1px solid #ff7474;
-    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 1px;
     border-color: #ff7474;
 }
 
