@@ -3,7 +3,7 @@
     font-family: 'Magnolia Script';
     src: url('Magnolia-Script.otf') format('opentype');
 }
-
+/* This line below is for the login and signup page input field styling */
 .form-control{
     width: 100%;
     color: #4a5568;
@@ -19,4 +19,27 @@
 .form-control::placeholder {
     color: #ff7474;
     font-family: 'Magnolia Script', sans-serif;
+}
+
+/* This line below is for the password reset pages input field styling */
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #fc8181;
+    border-radius: 4px;
+    font-family: 'Magnolia Script', sans-serif;
+    font-size: 16px;
+}
+input[type='email']::placeholder{
+    color: #ff7474;
+    font-family: 'Magnolia Script', sans-serif;
+}
+
+/* Style for error messages */
+.danger-alert {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
 }
