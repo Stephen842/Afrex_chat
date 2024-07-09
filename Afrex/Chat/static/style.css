@@ -32,9 +32,9 @@ input[type="email"] {
     font-family: 'Magnolia Script', sans-serif;
     font-size: 16px;
 }
-input[type='email']::placeholder{
-    color: #ff7474;
-    font-family: 'Magnolia Script', sans-serif;
+input[type="email"]:focus {
+    border-color: #fc8181; /* Red border color on focus */
+    outline: none; /* Prevent the default outline on focus */
 }
 
 /* Style for error messages */

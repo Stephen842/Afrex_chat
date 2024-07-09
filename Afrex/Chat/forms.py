@@ -69,11 +69,11 @@ class RegistrationForm(UserCreationForm):
 
 
 class LoginForm(forms.Form):
-    email = forms.CharField(
+    username = forms.CharField(
         max_length=50,
         required=True,
         widget=forms.TextInput(
-            attrs={"class": "form-control", "placeholder": "Email"}
+            attrs={"class": "form-control", "placeholder": "Username"}
         ),
     )
 

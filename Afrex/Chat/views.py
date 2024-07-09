@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 # This module I imported below deals on user authentication during signups and logins and reset passwords functionality.
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 from .forms import RegistrationForm, LoginForm
 
 # this module I imported here is for the date and time rendering, and also to calculate timezone and to give out timing to region irrespective of their countries time.
@@ -50,9 +51,9 @@ def sign_in(request):
         form = LoginForm(request.POST)
 
         if form.is_valid():
-            email = form.cleaned_data["email"]
+            username = form.cleaned_data["username"].lower()
             password = form.cleaned_data["password"]
-            user = authenticate(request, email=email, password=password)
+            user = authenticate(request, username=username, password=password)
 
             if user:
                 login(request, user)
@@ -68,3 +69,10 @@ def sign_in(request):
 def sign_out(request):
     logout(request)
     return redirect('login')
+
+@login_required
+def home(request):
+    context = {
+        'title': 'Afrex Chat System - Real Time Communication Across Africa'
+    }
+    return render(request, 'pages/home.html', context)
