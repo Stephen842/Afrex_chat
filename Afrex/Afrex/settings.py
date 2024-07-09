@@ -40,7 +40,30 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "whitenoise.runserver_nostatic",
     "Chat",
+    #the following below is for the 3rd party authentication features though i intend to use Google, Github and X account for it
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    #Below i included the providers i intend to use
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.twitter',
 ]
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+        #One can still signin using the username and password field provided at the login/signup pages irrespective of the allauth provided
+        'django.contrib.auth.backends.ModelBackend',
+
+        #This is the second option users can use to signup/signin using the allauth provided
+        'allauth.account.auth_backends.AuthenticationBackend',
+        ]
+
+ACCOUNT_LOGOUT_ON_GET = True
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -51,6 +74,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "Afrex.urls"
