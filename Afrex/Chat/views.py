@@ -29,7 +29,8 @@ def sign_up(request):
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
-            login(request, user)
+            # Specify the authentication backend explicitly
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect("home")
         else:
             context["form"] = form
