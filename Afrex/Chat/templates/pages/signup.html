@@ -1,4 +1,5 @@
 {% load static %}
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -132,9 +133,27 @@
                                 </div>
 
                                 <div class='flex justify-evenly text-lg'>
-                                    <p><i class="bi bi-google"></i></p>
-                                    <p><i class="bi bi-github"></i></p>
-                                    <p><i class="bi bi-twitter-x"></i></p>
+
+                                    <form action="{% provider_login_url 'google' %}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit" class='absolute hidden'> <i class="bi bi-google"></i> </button>
+                                    </form>
+
+                                    <form action="{% provider_login_url 'google' %}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit"> <i class="bi bi-google"></i> </button>
+                                    </form>
+
+                                    <form action="{% provider_login_url 'github' %}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit"> <i class="bi bi-github"></i> </button>
+                                    </form>
+
+                                    <form action="{% provider_login_url 'google' %}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit"> <i class="bi bi-twitter-x"></i> </button>
+                                    </form>
+
                                 </div>
 		                    </form>
                         </div>
