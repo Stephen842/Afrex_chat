@@ -33,6 +33,9 @@
                     <div class = 'backdrop-blur-lg h-3/4 w-3/4 bg-translucent-gray'>
                         <div class = 'flex items-center justify-center h-3/4 mt-11'>
 		                    <form method = 'POST' class='w-full max-w-md p-8 bg-white rounded-lg shadow-2xl'>
+                                <div class='flex justify-center mb-5 h-[30%]'>
+                                    <img src="{% static 'afrex.png' %}" alt='AfreX Logo' class='max-w-full h-40'>
+                                </div>
 			                    {% csrf_token %}
                                 <div class='mb-5 w-full'>
 			                        {{ form.username }}
