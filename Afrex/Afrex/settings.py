@@ -77,6 +77,15 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
 ]
 
+# Time in seconds (7 days)
+SESSION_COOKIE_AGE = 604800
+
+# Optional: Session expires when browser closes
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+# Optional: Update session expiration on every request
+SESSION_SAVE_EVERY_REQUEST = True
+
 ROOT_URLCONF = "Afrex.urls"
 
 TEMPLATES = [
