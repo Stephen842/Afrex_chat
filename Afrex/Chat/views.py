@@ -77,3 +77,9 @@ def home(request):
         'title': 'Afrex Chat System - Real Time Communication Across Africa'
     }
     return render(request, 'pages/home.html', context)
+
+def terms(request):
+    context = {
+        'title': 'Afrex Terms & Conditions'
+    }
+    return render(request, 'pages/Terms_Condition.html', context)
